@@ -1,0 +1,9 @@
+.navbar-brand h1 { /* Restaurant name */
+  color: orangered;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: .6;
+}
+.navbar-brand a:hover, .navbar-brand a:focus {
+  text-decoration: none;
+}
