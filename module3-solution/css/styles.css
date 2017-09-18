@@ -1,9 +1,36 @@
-.navbar-brand h1 { /* Restaurant name */
-  color: orangered;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: .6;
+.navbar-header > a.navbar-brand {
+  color: #0A5;
+  font-size: 2.5em;
 }
-.navbar-brand a:hover, .navbar-brand a:focus {
-  text-decoration: none;
+
+.navbar-header > a.navbar-brand:hover {
+  color: #0A5;
+}
+
+#nav-list {
+  background-color: #0A5;
+  margin: 0 -15px;
+}
+
+#nav-list li {
+  border: 1px solid lightgray;
+  font-size: 1.25em;
+}
+
+#nav-list li:hover {
+  background-color: #0C6;
+}
+
+#nav-list a {
+  color: white;
+}
+
+section {
+  background-color: lightgray;
+  padding: 14px;
+  margin: 12px 0;
+}
+
+h3 {
+  margin-top: 2px;
 }
