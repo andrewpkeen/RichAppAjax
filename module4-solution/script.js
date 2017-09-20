@@ -35,7 +35,7 @@ WARNING!!! WARNING!!!
 // (Note, Step 2 will be done in the SpeakHello.js file.)
 (function() {
   var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
-
+  
   // STEP 10:
   // Loop over the names array and say either 'Hello' or "Good Bye"
   // using the 'speak' method or either helloSpeaker's or byeSpeaker's
@@ -63,4 +63,45 @@ WARNING!!! WARNING!!!
       helloSpeaker.speak(names[i]);
     }
   }
+
+  console.log("Part 2:")
+
+  // Part 2.b.
+  function createGreeting(name) {
+    var firstLetter = name.charAt(0).toLowerCase();
+    if (firstLetter == 'j') {
+      return byeSpeaker.speakSimple(name);
+    } else {
+      return helloSpeaker.speakSimple(name);
+    }
+  }
+  var greetings = names.map(createGreeting);
+  for (i = 0; i < greetings.length; ++i) {
+    console.log(greetings[i]);
+  }
+
+  console.log("Part 3:");
+
+  // Part 3.b.
+  function separateGreetings(greetings, name) {
+    var firstLetter = name.charAt(0).toLowerCase();
+    if (firstLetter == 'j') {
+      greetings.bye.push(byeSpeaker.speakSimple(name));
+    } else {
+      greetings.hello.push(helloSpeaker.speakSimple(name));
+    }
+    return greetings;
+  }
+  var separated = names.reduce(separateGreetings, {hello: [], bye: []});
+
+  console.log("hello:");
+  for (i = 0; i < separated.hello.length; ++i) {
+    console.log(separated.hello[i]);
+  }
+
+  console.log("bye:");
+  for (i = 0; i < separated.bye.length; ++i) {
+    console.log(separated.bye[i]);
+  }
+
 })();
