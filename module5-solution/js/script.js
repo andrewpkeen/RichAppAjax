@@ -168,7 +168,7 @@ dc.loadAbout = function() {
       for (var i = 0; i < rating; i++) {
         aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star");
       }
-      for (var i = rating; i < 5; i++) {
+      for (i = rating; i < 5; i++) {
         aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
       }
       aboutHtml = insertProperty(aboutHtml, "rating", rating)
