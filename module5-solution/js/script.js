@@ -164,6 +164,14 @@ dc.loadAbout = function() {
   $ajaxUtils.sendGetRequest(
     aboutHtmlUrl,
     function (aboutHtml) {
+      var rating = chooseRandomRating();
+      for (var i = 0; i < rating; i++) {
+        aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star");
+      }
+      for (var i = rating; i < 5; i++) {
+        aboutHtml = insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
+      }
+      aboutHtml = insertProperty(aboutHtml, "rating", rating)
       insertHtml("#main-content", aboutHtml);
     },
     false);
