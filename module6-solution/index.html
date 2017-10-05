@@ -11,8 +11,8 @@
   </head>
 <body ng-app="LunchCheck">
    <div class="container" ng-controller="LunchCheckController">
-      <h1>Lunch Checker</h1>
-      <p class="text-muted">
+      <h1 class="text-primary">Lunch Checker</h1>
+      <p class="text-info">
         Note: Empty items are ignored.
       </p>
       <div class="form-group">
@@ -21,7 +21,7 @@
           class="form-control {{stateColor}}" ng-model="lunchMenu">
       </div>
       <div class="form-group">
-          <button class="btn btn-default" ng-click="checkIfTooMuch()">Check If Too Much</button>
+          <button class="btn btn-primary" ng-click="checkIfTooMuch()">Check If Too Much</button>
       </div>
       <div class="form-group message {{stateColor}}">
         {{tooMuchMessage}}
