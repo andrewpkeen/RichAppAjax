@@ -10,7 +10,7 @@
     </style>
   </head>
 <body ng-app="LunchCheck">
-   <div class="container" ng-controller="LunchCheckController">
+   <div class="container {{state}}" ng-controller="LunchCheckController">
       <h1 class="text-primary">Lunch Checker</h1>
       <p class="text-info">
         Note: Empty items are ignored.
@@ -18,12 +18,12 @@
       <div class="form-group">
           <input id="lunch-menu" type="text"
           placeholder="list comma separated dishes you usually have for lunch"
-          class="form-control {{stateColor}}" ng-model="lunchMenu">
+          class="form-control" ng-model="lunchMenu">
       </div>
       <div class="form-group">
           <button class="btn btn-primary" ng-click="checkIfTooMuch()">Check If Too Much</button>
       </div>
-      <div class="form-group message {{stateColor}}">
+      <div class="form-group message help-block">
         {{tooMuchMessage}}
       </div>
    </div>
