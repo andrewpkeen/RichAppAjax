@@ -4,7 +4,8 @@
 angular.module('ShoppingListCheckOff', [])
 .controller('ToBuyController', ToBuyController)
 .controller('AlreadyBoughtController', AlreadyBoughtController)
-.service('ShoppingListCheckOffService', ShoppingListCheckOffService);
+.service('ShoppingListCheckOffService', ShoppingListCheckOffService)
+.filter('price', PriceFilter);
 
 ToBuyController.$inject = ['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
@@ -57,6 +58,13 @@ function ShoppingListCheckOffService() {
     var item = itemsToBuy.splice(index, 1);
     boughtItems.push(item[0]);
   };
+}
+
+PriceFilter.$inject = ['$filter']
+function PriceFilter($filter) {
+  return function (input) {
+    return "$$" + $filter('currency')(input, "$", 2)
+  }
 }
 
 })();
