@@ -17,6 +17,7 @@ function ToBuyController(ShoppingListCheckOffService) {
     return toBuy.items.length == 0;
   };
 
+  // Notify the service that an item was bought
   toBuy.bought = function (index) {
     ShoppingListCheckOffService.buyItem(index);
   };
@@ -55,11 +56,14 @@ function ShoppingListCheckOffService() {
   };
 
   service.buyItem = function (index) {
+    // Remove this one item from the to-buy list
     var item = itemsToBuy.splice(index, 1);
+    // Add it to the bought list
     boughtItems.push(item[0]);
   };
 }
 
+// Extend the angular currency filter to use 3 dollar signs
 PriceFilter.$inject = ['$filter']
 function PriceFilter($filter) {
   return function (input) {
