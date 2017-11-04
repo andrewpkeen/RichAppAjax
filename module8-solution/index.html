@@ -10,14 +10,19 @@
    <div class="container" ng-controller="NarrowItDownController as control">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
+    <!-- Search Term Entry Box -->
     <div class="form-group">
       <input type="text" placeholder="search term" class="form-control" ng-model="control.searchTerm">
     </div>
+
+    <!-- Narrow It Down Button -->
     <div class="form-group narrow-button">
       <button class="btn btn-primary" ng-click="control.narrowItDown();">Narrow It Down For Me!</button>
     </div>
 
-    <found-items items="control.found" on-remove="control.remove(index)" show-nothing-found="control.nothingFound"></found-items>
+    <!-- Table of Found Items -->
+    <found-items items="control.found" on-remove="control.remove(index)" show-nothing-found="control.nothingFound">
+    </found-items>
   </div>
 
   <script src="scripts/angular.min.js"></script>

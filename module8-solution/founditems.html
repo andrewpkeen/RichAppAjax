@@ -1,5 +1,9 @@
 <div class="col-xs-12">
+
+  <!-- Only Show the table if there are items in it -->
   <table class="table" ng-if="items.length > 0">
+
+    <!-- Header Row -->
     <thead>
       <tr>
         <th>Name</th>
@@ -8,6 +12,8 @@
         <th></th>
       </tr>
     </thead>
+
+    <!-- Menu Item Rows -->
     <tbody>
       <tr ng-repeat="item in items">
         <td>{{item.name}}</td>
@@ -17,5 +23,7 @@
       </tr>
     </tbody>
   </table>
+
+  <!-- Only show the nothing found message if narrow was clicked and nothing was found -->
   <p ng-if="showNothingFound"><strong>Nothing found</strong></p>
 </div>
