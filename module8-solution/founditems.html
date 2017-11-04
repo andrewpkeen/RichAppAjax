@@ -1,0 +1,21 @@
+<div class="col-xs-12">
+  <table class="table" ng-if="items.length > 0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Short Name</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in items">
+        <td>{{item.name}}</td>
+        <td>{{item.short_name}}</td>
+        <td>{{item.description}}</td>
+        <td><button ng-click="onRemove({index: $index});">Don't want this one!</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <p ng-if="showNothingFound"><strong>Nothing found</strong></p>
+</div>
