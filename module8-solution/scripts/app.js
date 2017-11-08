@@ -11,8 +11,9 @@ function FoundItemsDirective() {
     restrict: 'E',
     templateUrl: 'founditems.html',
     scope: {
+      loading: '<',
       items: '<',
-      showNothingFound: '<',
+      message: '<',
       onRemove: '&'
     }
   };
@@ -23,20 +24,34 @@ function NarrowItDownController(MenuSearchService) {
   var control = this;
 
   control.searchTerm = "";
+  control.loading = false;
   control.found = [];
-  control.nothingFound = false;
+  control.message = "";
 
   control.narrowItDown = function () {
+
+    // Clear the list of found items
+    control.found = [];
+    
     if (control.searchTerm.length === 0) {
       // If the search term is empty, report nothing found
-      control.nothingFound = true;
-      control.found = [];
+      control.message = "Nothing found";
     } else {
       // Get the search results from the service
+      control.message = "";
+      control.loading = true;
       var promise = MenuSearchService.getMatchedMenuItems(control.searchTerm);
       promise.then(function (result) {
+        // Success, capture the results
         control.found = result;
-        control.nothingFound = control.found.length === 0;
+        control.loading = false;
+        if (control.found.length === 0) {
+          control.message = "Nothing found"
+        }
+      }).catch(function (error) {
+        // Error! Tell the user.
+        control.message = "Server error!"
+        control.loading = false;
       });
     }
   };

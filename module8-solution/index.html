@@ -21,7 +21,11 @@
     </div>
 
     <!-- Table of Found Items -->
-    <found-items items="control.found" on-remove="control.remove(index)" show-nothing-found="control.nothingFound">
+    <found-items
+        loading="control.loading"
+        items="control.found"
+        on-remove="control.remove(index)"
+        message="control.message">
     </found-items>
   </div>
 

@@ -1,5 +1,8 @@
 <div class="col-xs-12">
 
+  <!-- Spinning icon to show when waiting for server response -->
+  <div class="loader" ng-if="loading"></div>
+
   <!-- Only Show the table if there are items in it -->
   <table class="table" ng-if="items.length > 0">
 
@@ -24,6 +27,6 @@
     </tbody>
   </table>
 
-  <!-- Only show the nothing found message if narrow was clicked and nothing was found -->
-  <p ng-if="showNothingFound"><strong>Nothing found</strong></p>
+  <!-- Place to show a message if necessary -->
+  <p><strong>{{message}}</strong></p>
 </div>
