@@ -8,4 +8,4 @@ angular.module('MenuApp').component('items', {
   }
 });
 
-});
+})();
