@@ -9,6 +9,8 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   // Redirect to home page if no other URL matches
   $urlRouterProvider.otherwise('/');
 
+  console.log('Creating states');
+
   // *** Set up UI states ***
   $stateProvider
 
@@ -24,6 +26,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     controller: 'CategoriesController as ctrl',
     resolve: {
       categories: ['MenuDataService', function (MenuDataService) {
+        console.log("Calling getAllCategories");
         return MenuDataService.getAllCategories();
       }]
     }

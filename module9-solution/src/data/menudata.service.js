@@ -11,16 +11,17 @@ function MenuDataService($http) {
 
   service.getAllCategories = function () {
     console.log("Trying to get all categories");
-    $http({
+    return $http({
       method: 'GET',
       url: 'https://davids-restaurant.herokuapp.com/categories.json'
     }).then(function (response) {
+      console.log('Got response', response)
       return response.data;
     });
   };
 
   service.getItemsForCategory = function (categoryShortName) {
-    $http({
+    return $http({
       method: 'GET',
       url: 'https://davids-restaurant.herokuapp.com/menu_items.json',
       params: {

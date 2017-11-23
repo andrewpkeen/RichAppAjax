@@ -1,9 +1,9 @@
-<table ng-if="$ctrl.items.length > 0">
+<table ng-if="$ctrl.items.menu_items.length > 0">
   <thead>
     <tr><th>Name</th><th>Description</th></tr>
   </thead>
   <tbody>
-    <tr ng-repeat="item in $ctrl.items">
+    <tr ng-repeat="item in $ctrl.items.menu_items">
       <td>{{item.name}}</td>
       <td>{{item.description}}</td>
     </tr>
