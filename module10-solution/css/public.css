@@ -113,6 +113,17 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+input {
+  color: black;
+}
+
+.submit {
+  color: black;
+}
+
+.submit:disabled {
+  color: darkgray;
+}
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
