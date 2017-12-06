@@ -1,13 +1,29 @@
 <div class="container">
   <h2 id="info-title" class="text-center">My Info</h2>
-  <div ng-if="infoCtrl.userInfo" class="text-center">
+  <div ng-if="infoCtrl.userInfo">
     <table class="table">
-      <tr><td>First name</td><td>{{infoCtrl.userInfo.firstName}}</td></tr>
-      <tr><td>Last Name</td><td>{{infoCtrl.userInfo.lastName}}</td></tr>
-      <tr><td>Email address</td><td>{{infoCtrl.userInfo.email}}</td></tr>
-      <tr><td>Phone number</td><td>{{infoCtrl.userInfo.phone}}</td></tr>
+      <tr>
+        <td class="text-right">First name</td>
+        <td class="text-left">{{infoCtrl.userInfo.firstName}}</td>
+      </tr>
+      <tr>
+        <td class="text-right">Last Name</td>
+        <td class="text-left">{{infoCtrl.userInfo.lastName}}</td>
+      </tr>
+      <tr>
+        <td class="text-right">Email address</td>
+        <td class="text-left">{{infoCtrl.userInfo.email}}</td>
+      </tr>
+      <tr>
+        <td class="text-right">Phone number</td>
+        <td class="text-left">{{infoCtrl.userInfo.phone}}</td>
+      </tr>
     </table>
     <h2 class="text-center">Favorite Dish</h2>
+    <div class="col-md-3"></div>
+    <div class="text-center">
+      <menu-item menu-item="infoCtrl.userInfo.menuItem"></menu-item>
+    </div>
   </div>
   <div ng-if="!infoCtrl.userInfo" class="text-center">
     Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>

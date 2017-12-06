@@ -19,7 +19,8 @@ function SignUpController(MenuService, UserInfoService) {
     lastName: "",
     email: "",
     phone: "",
-    favorite: ""
+    favorite: "",
+    menuItem: null
   };
 
   signUpCtrl.submit = function () {
@@ -28,10 +29,12 @@ function SignUpController(MenuService, UserInfoService) {
     if (matches) {
       var category = matches[1];
       MenuService.getMenuItems(category).then(function (items) {
-        if (items.menu_items.find(function (item) {
+        var item = items.menu_items.find(function (item) {
           return item.short_name === signUpCtrl.user.favorite;
-        })) {
+        });
+        if (item) {
           // Success
+          signUpCtrl.user.menuItem = item;
           UserInfoService.setUserInfo(signUpCtrl.user);
         } else {
           // Failure
