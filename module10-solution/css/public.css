@@ -113,6 +113,7 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+/* Added to make the table columns equal width */
 .table {
   table-layout: fixed;
 }
